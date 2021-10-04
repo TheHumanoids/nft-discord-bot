@@ -57,7 +57,7 @@ const fetchFloor = async () => {
 }
 
 module.exports = {
-	name: "floor",
+	name: "floordsfdfsdfsdfsdf",
 	execute(message) {
     cache.get("FloorPrice", fetchFloor)
       .then((floorPrice) => {
