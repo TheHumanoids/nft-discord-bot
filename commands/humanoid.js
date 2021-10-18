@@ -5,15 +5,15 @@ const Discord = require('discord.js');
 
 module.exports = {
 	name: process.env.DISCORD_TOKEN_COMMAND || "humanoid",
-	execute(message, args) {
-    if (!args.length) {
-      return message.channel.send(`You didn't provide a token id, ${message.author}!`);
+	execute(message) {
+//     if (!args.length) {
+//       return message.channel.send(`You didn't provide a token id, ${message.author}!`);
 	
-    }
+//     }
 
-    if (isNaN(parseInt(args[0]))) {
-      return message.channel.send(`Token id must be a number!`);
-    }
+//     if (isNaN(parseInt(args[0]))) {
+//       return message.channel.send(`Token id must be a number!`);
+//     }
 		
     let randomToken = Math.random() * (10000 - 1) + 1;	
 
