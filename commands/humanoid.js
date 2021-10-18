@@ -5,7 +5,7 @@ const Discord = require('discord.js');
 
 module.exports = {
 	name: process.env.DISCORD_TOKEN_COMMAND || "humanoid",
-	execute(message, Math.random() * (10000 - 1) + 1;) {
+	execute(message, args) {
     if (!args.length) {
       return message.channel.send(`You didn't provide a token id, ${message.author}!`);
 	
@@ -14,8 +14,10 @@ module.exports = {
     if (isNaN(parseInt(args[0]))) {
       return message.channel.send(`Token id must be a number!`);
     }
+		
+    let randomToken = Math.random() * (10000 - 1) + 1;	
 
-    let url = `${openseaAssetUrl}/${process.env.CONTRACT_ADDRESS}/${args[0]}`;
+    let url = `${openseaAssetUrl}/${process.env.CONTRACT_ADDRESS}/${randomToken}`;
     let settings = { 
       method: "GET",
       headers: {
