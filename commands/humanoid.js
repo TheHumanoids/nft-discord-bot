@@ -40,7 +40,9 @@ module.exports = {
         .then((metadata) => {
             const embedMsg = new Discord.MessageEmbed()
               .setColor('#0099ff')
-              .setImage(metadata.image_url);
+              .setImage(metadata.image_url)
+	      .setTitle(metadata.name)
+              .setURL(metadata.permalink);
             message.channel.send(embedMsg);
         })
         .catch(error => message.channel.send(error.message));
