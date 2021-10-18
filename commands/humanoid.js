@@ -15,7 +15,7 @@ module.exports = {
 //       return message.channel.send(`Token id must be a number!`);
 //     }
 		
-    let randomToken = Math.random() * (10000 - 1) + 1;	
+    var randomToken = Math.round(Math.random() * (10000 - 1) + 1);
 
     let url = `${openseaAssetUrl}/${process.env.CONTRACT_ADDRESS}/${randomToken}`;
     let settings = { 
