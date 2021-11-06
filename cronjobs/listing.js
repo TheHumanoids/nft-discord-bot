@@ -73,12 +73,13 @@ module.exports = {
               .setThumbnail(event.asset.image_url)
               .addField("By", `[${event.seller.user?.username || event.seller.address.slice(0,8)}](https://etherscan.io/address/${event.seller.address})`, true)
 
-            
+            if( event.starting_price/(1e18) > 0.5 ) {
              client.channels.fetch(process.env.DISCORD_GEN_CHANNEL_ID)
               .then(channel => {
-                channel.send(embedMsg2);
+                channel.send(embedMsg);
               })
               .catch(console.error);
+            }
           }
         });
 
