@@ -65,6 +65,15 @@ module.exports = {
                 channel.send(embedMsg);
               })
               .catch(console.error);
+            
+            
+           if( event.total_price/(1e18) > process.MIN_LISTING_PRICE ) {
+             client.channels.fetch(process.env.DISCORD_GEN_CHANNEL_ID)
+              .then(channel => {
+                channel.send(embedMsg);
+              })
+              .catch(console.error);
+            }
           }
         });
 
