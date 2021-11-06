@@ -65,9 +65,18 @@ module.exports = {
               })
               .catch(console.error);
             
+            const embedMsg2 = new Discord.MessageEmbed()
+              .setColor('#0099ff')
+              .setTitle(event.asset.name)
+              .setURL(event.asset.permalink)
+              .setDescription(`has just been listed for ${event.starting_price}\u039E`)
+              .setThumbnail(event.asset.image_url)
+              .addField("By", `[${event.seller.user?.username || event.seller.address.slice(0,8)}](https://etherscan.io/address/${event.seller.address})`, true)
+
+            
              client.channels.fetch(process.env.DISCORD_GEN_CHANNEL_ID)
               .then(channel => {
-                channel.send(embedMsg);
+                channel.send(embedMsg2);
               })
               .catch(console.error);
           }
