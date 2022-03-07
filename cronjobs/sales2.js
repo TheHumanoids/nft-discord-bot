@@ -6,7 +6,7 @@ var salesCache = [];
 var lastTimestamp = null;
 
 module.exports = {
-  name: 'sales',
+  name: 'sales 2',
   description: 'sales bot',
   interval: 30000,
   enabled: process.env.DISCORD_SALES_CHANNEL_ID != null,
