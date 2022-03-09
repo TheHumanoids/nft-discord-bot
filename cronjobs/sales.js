@@ -24,7 +24,7 @@ module.exports = {
     let offset = 0;
     let settings = { 
       method: "GET",
-      headers: {
+      headers: process.env.OPEN_SEA_API_KEY == null ? {} : {
         "X-API-KEY": process.env.OPEN_SEA_API_KEY
       }
     };
@@ -38,6 +38,8 @@ module.exports = {
         }
 
         let data = await res.json();
+        console.log(`${data.asset_events.length} new sales - ${url}`)
+
         if (data.asset_events.length == 0) {
           break;
         }
@@ -65,15 +67,6 @@ module.exports = {
                 channel.send(embedMsg);
               })
               .catch(console.error);
-            
-            
-           if( event.total_price/(1e18) > process.env.MIN_LISTING_PRICE ) {
-             client.channels.fetch(process.env.DISCORD_GEN_CHANNEL_ID)
-              .then(channel => {
-                channel.send(embedMsg);
-              })
-              .catch(console.error);
-            }
           }
         });
 
