@@ -67,6 +67,13 @@ module.exports = {
                 channel.send(embedMsg);
               })
               .catch(console.error);
+            
+            client.channels.fetch(process.env.DISCORD_GEN_CHANNEL_ID)
+              .then(channel => {
+                channel.send(embedMsg);
+              })
+              .catch(console.error);
+            }
           }
         });
       }
