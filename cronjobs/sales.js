@@ -73,7 +73,7 @@ module.exports = {
                 channel.send(embedMsg);
               })
               .catch(console.error);
-            }
+            
           }
         });
       }
